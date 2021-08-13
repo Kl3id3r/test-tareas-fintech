@@ -1,0 +1,5 @@
+<p>users works!</p>
+<div class="auth-links" *ngIf="vm$ | async as vm">
+    <a *ngIf="vm.isAdmin" routerLink="/crear-usuario">crear usuario</a>
+    <button (click)="logout()" *ngIf="vm.isLoggedin">logout</button>
+</div>
