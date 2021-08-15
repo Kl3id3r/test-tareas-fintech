@@ -1,0 +1,6 @@
+<h1>Tareas</h1>
+<div class="auth-links" *ngIf="vm$ | async as vm">
+    <a *ngIf="vm.isAdmin" routerLink="/tareas/crear-tarea">crear tarea</a>
+    <button (click)="logout()" *ngIf="vm.isLoggedin">logout</button>
+</div>
+<router-outlet></router-outlet>

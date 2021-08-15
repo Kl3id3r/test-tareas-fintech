@@ -3,24 +3,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Components
-import { CoreComponent } from './core/core.component';
+import { AuthGuard } from './modules/auth/resources/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: CoreComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
-      },
-      {
-        path: '',
-        loadChildren: () => import('./modules/users/users.module').then((m) => m.UsersModule),
-      },
-    ],
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
-  { path: '**', pathMatch: 'full', redirectTo: 'usuarios' },
+  {
+    path: 'tareas',
+    loadChildren: () =>
+      import('./modules/tasks/tasks.module').then((m) => m.TasksModule),
+    canLoad: [AuthGuard]
+  },
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];
 
 @NgModule({

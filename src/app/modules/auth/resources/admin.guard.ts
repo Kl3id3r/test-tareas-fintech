@@ -10,7 +10,7 @@ export class AdminGuard implements CanActivate {
   user: User = JSON.parse(localStorage.getItem('user') || '{}');
   canActivate(): boolean {
     if (!this.user.isadmin) {
-      this.router.navigateByUrl('/usuarios');
+      this.router.navigateByUrl('/tareas');
       return false;
     }
     return true;

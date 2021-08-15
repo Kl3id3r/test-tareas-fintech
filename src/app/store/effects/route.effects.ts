@@ -10,7 +10,7 @@ export class RouteEffects {
     () =>
       this.actions$.pipe(
         ofType(fromAuthActions.loginSuccess),
-        tap(() => this.route.navigateByUrl('/usuarios'))
+        tap(() => this.route.navigateByUrl('/tareas'))
       ),
     { dispatch: false }
   );

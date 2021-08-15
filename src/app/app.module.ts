@@ -22,12 +22,10 @@ import { environment } from '../environments/environment';
 
 // Components
 import { AppComponent } from './app.component';
-import { CoreComponent } from './core/core.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CoreComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
