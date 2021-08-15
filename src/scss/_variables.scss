@@ -1,0 +1,69 @@
+$primary: #223E6D;
+$primary-dark: #005aa7;
+$primary-light: #0096db;
+
+$grey-01: #4a4a4a;
+$grey-03: #545454;
+$grey-04: #d6d6d6;
+$black-02: #212121;
+$error: #f46363;
+$success: #2ed477;
+$danger: #ff3b30;
+$scrollbar-thumb: #007aff;
+$scrollbar-track: #d8d8d8;
+$gray-bg-tab: #d7d7d7;
+
+$black-01: #000000;
+
+$black-03: rgba(0, 0, 0, 0.32);
+$black-04: rgba(0, 0, 0, 0.87);
+
+$grey-02: #525865;
+$grey-05: #ecf0f4;
+$grey-06: #f6f8fa;
+$warning-01: #f5a623;
+$warning-02: rgba(247, 193, 55, 0.5);
+
+$info: #3598db;
+$done: #26c0c4;
+$primary-pressed: rgba(224, 17, 43, 0.16);
+$primary-selected: rgba(224, 17, 43, 0.08);
+$primary-hover: rgba(224, 17, 43, 0.04);
+$pressed: rgba(25, 28, 34, 0.16);
+$selected: rgba(25, 28, 34, 0.08);
+$hover: rgba(25, 28, 34, 0.04);
+
+$mobile-breakpoint: 576px;
+$tablet-breakpoint: 992px;
+
+// Hi contrast
+
+$black: #000000;
+$white: #ffffff;
+$grey: #dedede;
+
+// fonrs
+
+:root {
+  --font-10: 0.625rem;
+  --font-12: 0.75rem;
+  --font-14: 0.875rem;
+  --font-16: 1rem;
+  --font-18: 1.125rem;
+  --font-20: 1.25rem;
+  --font-24: 1.5rem;
+  --font-32: 2rem;
+  --font-36: 2.25rem;
+  --font-40: 2.5rem;
+}
+
+$fs-10: var(--font-10);
+$fs-12: var(--font-12);
+$fs-14: var(--font-14);
+$fs-16: var(--font-16);
+$fs-18: var(--font-18);
+$fs-20: var(--font-20);
+$fs-24: var(--font-24);
+$fs-32: var(--font-32);
+$fs-36: var(--font-36);
+$fs-40: var(--font-40);

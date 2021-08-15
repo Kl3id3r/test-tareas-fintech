@@ -1,6 +1,5 @@
-import { Observable } from 'rxjs';
+// Vendors
 import { Injectable } from '@angular/core';
-import { IResponse } from './../../../core/models/response';
 import { Task } from './Task';
 
 @Injectable({
@@ -18,46 +17,58 @@ export class TaskService {
   constructor() { }
 
   getTasks(): Promise<Task[]> {
+    const localTasks = JSON.parse(localStorage.getItem('localtasks') || '[]');
+    if (localTasks.length) {
+      this.tasks = localTasks;
+    }
     return new Promise((res, rej) => {
-      // Generar error cuando haya 15 items
-      setTimeout(() => {
-        this.tasks.length < 15 ? res(this.tasks) : rej('¡Ocurrió un error al obtener tareas!')
-      }, 450);
+      setTimeout(() => res(this.tasks), 1000);
     });
   }
 
-  createTask(task: Task): Promise<IResponse> {
+  createTask(task: Task): Promise<Task> {
+    task = {
+      ...task,
+      id: (this.tasks.length + 1),
+      estatus: Number(task.estatus)
+    };
+    this.tasks = [...this.tasks, task];
+    localStorage.setItem('localtasks', JSON.stringify(this.tasks));
     return new Promise((res, rej) => {
-      setTimeout(() => {
-        task ? res({ data: task }) : rej('¡Error al crear tarea!');
-      }, 1000)
+      setTimeout(() => res(task), 1000)
     });
   }
 
-  updateTask(id: number, task: Task): Promise<IResponse> {
-    // return new Observable((next, err) => {
-    //   next({ data: 's' });
-
-    //   err('Some');
-    // });
-
+  getTask(id: number): Promise<Task> {
     return new Promise((res, rej) => {
       setTimeout(() => {
         const filtered = this.tasks.find(e => e.id === id);
-        if (filtered) {
-          const data = { ...filtered, ...task };
-          res({ data });
-        } else {
-          rej('¡Error al modificar tarea!');
-        }
+        filtered ? res(filtered) : rej({})
       }, 1000)
     });
   }
 
-  deleteTask(id: number): Promise<IResponse> {
+  editTask(task: Task): Promise<Task> {
     return new Promise((res, rej) => {
       setTimeout(() => {
-        res({ data: true })
+        task = { ...task, estatus: Number(task.estatus) };
+        const findElement = this.tasks.find(e => e.id == task.id);
+        const updElement = { ...findElement, ...task };
+        if (findElement) {
+          this.tasks = [...this.tasks.filter(e => e.id !== task.id), updElement];
+          localStorage.setItem('localtasks', JSON.stringify(this.tasks));
+        }
+        res(task);
+      }, 1000)
+    });
+  }
+
+  deleteTask(id: number): Promise<boolean> {
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+        this.tasks = this.tasks.filter(e => e.id !== id);
+        localStorage.setItem('localtasks', JSON.stringify(this.tasks));
+        res(true)
       }, 1000);
     });
   }

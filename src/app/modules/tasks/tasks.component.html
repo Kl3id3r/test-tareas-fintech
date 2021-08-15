@@ -1,22 +1,8 @@
-<router-outlet></router-outlet>
-<h1>Tareas</h1>
-<div class="auth-links" *ngIf="vm$ | async as vm" class="table-responsive">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>N°</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Estatus</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let task of vm.tasks; let i = index">
-                <td>{{ i +1}}</td>
-                <td>{{ task.nombre}}</td>
-                <td>{{ task.descripcion}}</td>
-                <td>{{ task.estatus == 0 ? 'Pendiente' : 'Completado'}}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="row justify-content-between">
+    <div class="col-sm-12 col-md-7">
+        <app-task-list></app-task-list>
+    </div>
+    <div class="col-sm-12 col-md-4">
+        <app-task-add [taskId]="taskId"></app-task-add>
+    </div>
 </div>

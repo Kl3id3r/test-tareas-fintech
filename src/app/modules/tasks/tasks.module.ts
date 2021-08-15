@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { SharedModule } from './../../shared/shared.module';
-// import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // State
 import * as fromTask from './state/tasks.reducer';
@@ -21,6 +21,8 @@ import { TaskListComponent } from './task-list/task-list.component';
     CommonModule,
     TasksRoutingModule,
     SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
     StoreModule.forFeature(fromTask.tasksFeatureKey, fromTask.reducer),
     EffectsModule.forFeature([TaskEffects]),
   ],

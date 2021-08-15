@@ -1,3 +1,26 @@
-<h3>
-  lista de tareas
-</h3>
+<div class="auth-links" *ngIf="vm$ | async as vm" class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Estatus</th>
+        <th>Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="!vm.tasks.length"> No hay tareas que mostrar</tr>
+      <tr *ngFor="let task of vm.tasks; let i = index">
+        <td>{{ i +1}}</td>
+        <td>{{ task.nombre}}</td>
+        <td>{{ task.descripcion}}</td>
+        <td>{{ task.estatus == 0 ? 'Pendiente' : 'Completado'}}</td>
+        <td>
+          <button (click)="updateTask(task.id)">U</button>
+          <button (click)="deleteTask(task.id)">D</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

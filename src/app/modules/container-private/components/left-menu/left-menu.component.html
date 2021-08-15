@@ -1,0 +1,11 @@
+<div class="app-leftMenu align-items-start">
+  <div class="app-logo">
+    <img src="app-logo.svg" alt="MISTAREAS">
+  </div>
+
+  <ul class="app-menuItems">
+    <li *ngFor="let item of items">
+      <a [routerLink]="item.url" routerLinkActive="text-white">{{item.label}}</a>
+    </li>
+  </ul>
+</div>

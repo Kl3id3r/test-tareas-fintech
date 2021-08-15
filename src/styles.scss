@@ -1,2 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/scss/bootstrap";
+@import "./scss/variables";
+@import "./scss/text";
+@import "./scss/inputs";
+@import "./scss/left-menu";
+
+.app_root {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 100%;
+    @media (min-width: 720px) {
+        grid-template-columns: 90px 1fr;
+    }
+
+    .main_content {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+    }
+}

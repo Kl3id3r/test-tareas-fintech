@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-4">
+    <img class="img-thumb" src="profile.jpg" alt="Perfil" />
+  </div>
+  <div class="col-8" *ngIf="vm$ | async as vm">
+    <p class="t-primary fw-bold">
+      {{ vm.username }}
+    </p>
+    <p>{{ vm.email }}</p>
+  </div>
+  <div class="col-8" *ngIf="taskspending$ | async as vmtaskpending">
+    <p class="t-primary">
+      <span *ngIf="vmtaskpending.tasks.length; else nopending">
+        Tienes <span class="fw-bold">{{ vmtaskpending.tasks.length }}</span>
+        {{ vmtaskpending.tasks.length > 1 ? 'tareas' : 'tarea'}}
+        {{ vmtaskpending.tasks.length > 1 ? 'pendientes' : 'pendiente'}}
+      </span>
+      <ng-template #nopending>No tienes tareas pendientes</ng-template>
+    </p>
+  </div>
+</div>

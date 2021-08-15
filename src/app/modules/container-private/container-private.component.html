@@ -1,3 +1,10 @@
-header
-<router-outlet></router-outlet>
-footer
+<div class="app_root">
+    <app-left-menu></app-left-menu>
+    <div class="main_content container">
+        <app-header></app-header>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+        <app-footer></app-footer>
+    </div>
+</div>

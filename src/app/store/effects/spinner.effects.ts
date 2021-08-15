@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { NgxSpinnerService } from 'ngx-spinner';
-import * as fromAuthActions from '../actions/auth.actions';
 import { tap } from 'rxjs/operators';
+import * as fromAuthActions from '../actions/auth.actions';
+import * as TaskActions from '../../modules/tasks/state/tasks.actions';
 
 @Injectable()
 export class SpinnerEffects {
@@ -10,7 +11,10 @@ export class SpinnerEffects {
     () =>
       this.actions$.pipe(
         ofType(
-          fromAuthActions.loginPage
+          fromAuthActions.loginPage,
+          TaskActions.addTask,
+          TaskActions.upsertTask,
+          TaskActions.deleteTask
         ),
         tap(() => this.spinner.show())
       ),
@@ -22,12 +26,18 @@ export class SpinnerEffects {
       this.actions$.pipe(
         ofType(
           fromAuthActions.loginSuccess,
-          fromAuthActions.loginFailure
+          fromAuthActions.loginFailure,
+          TaskActions.addTasksuccess,
+          TaskActions.addTaskFailure,
+          TaskActions.upsertTaskSuccess,
+          TaskActions.upsertTaskFailure,
+          TaskActions.deleteTasksuccess,
+          TaskActions.deleteTaskFailure
         ),
         tap(() => {
-          setTimeout(() => {
-            this.spinner.hide();
-          }, 1000);
+          this.spinner.hide();
+          // setTimeout(() => {
+          // }, 1000);
         })
       ),
     { dispatch: false }

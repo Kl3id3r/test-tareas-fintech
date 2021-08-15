@@ -10,6 +10,11 @@ export interface AuthLinksViewModal {
   isLoggedin: boolean;
 }
 
+export interface UserProfile {
+  username: string
+  email: string;
+}
+
 export const selectIsLoggedIn = createSelector(
   selectAuthState,
   (state: fromAuth.State): boolean => state.user.id != null
@@ -18,6 +23,16 @@ export const selectIsLoggedIn = createSelector(
 export const selectIsAdmin = createSelector(
   selectAuthState,
   (state: fromAuth.State): boolean => state.user.isadmin
+);
+
+export const selectUserProfile = createSelector(
+  selectAuthState,
+  (state: fromAuth.State): any => {
+    return {
+      email: state.user.email,
+      username: state.user.username
+    }
+  }
 );
 
 export const selectAuthLinksViewModel = createSelector(

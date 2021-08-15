@@ -1,16 +1,6 @@
+import { HeaderService } from '../../core/services/header.service';
 // Vendors
 import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-// Resources
-import { User } from './../auth/resources/auth';
-import { AppState } from './../../store/index';
-import { AuthService } from './../auth/resources/auth.service';
-import { logout } from './../../store/actions/auth.actions';
-import { browserReload } from './../../store/actions/auth.actions';
-// State
-import * as fromTasksActions from './state/tasks.actions';
-import * as formTaskViewModel from './state/tasks.selectors';
 
 @Component({
   selector: 'app-users',
@@ -18,30 +8,14 @@ import * as formTaskViewModel from './state/tasks.selectors';
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent implements OnInit {
-  vm$: Observable<formTaskViewModel.TasksViewModel>;
+  taskId: number | undefined;
 
   constructor(
-    public authService: AuthService,
-    private store: Store<AppState>
-  ) {
-    this.vm$ = this.store.pipe(
-      select(formTaskViewModel.selectTasksViewModel)
-    );
+    private headerService: HeaderService
+  ) { }
+
+  ngOnInit() {
+    this.headerService.setTitle('LISTA DE TAREAS');
   }
 
-  ngOnInit(): void {
-    const user: User = JSON.parse(localStorage.getItem('user') || '');
-    this.store.dispatch(browserReload({ user }));
-    this.loadTasks();
-  }
-
-  loadTasks() {
-    this.store.dispatch(
-      fromTasksActions.loadTasks()
-    );
-  }
-
-  logout() {
-    this.store.dispatch(logout());
-  }
 }

@@ -1,0 +1,430 @@
+.form-group {
+  position: relative;
+  textarea,
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"] {
+    border-radius: 5px;
+    border: solid 2px $grey-04;
+    background-color: $white;
+    font-size: $fs-12;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    // line-height: 1.43;
+    // letter-spacing: 0.23px;
+    color: $black-02;
+    padding: 8px;
+    // &:hover {
+    //     border-color: $grey-01;
+    // }
+    &:focus {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      // border-color: $info;
+    }
+    &:disabled {
+      border-color: $grey-05;
+    }
+    &.ng-invalid.ng-touched:not(form) {
+      -webkit-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+      -moz-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+      box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+      border-color: $error;
+      &:hover,
+      &:focus {
+        -webkit-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+        -moz-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+        box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+        border-color: $error;
+      }
+    }
+
+    &::placeholder {
+      opacity: 0.7;
+      font-size: $fs-12;
+      font-weight: 300;
+      font-style: italic;
+
+      // font-stretch: normal;
+      // line-height: 1.43;
+      // letter-spacing: 0.23px;
+      color: #545454;
+    }
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"] {
+    height: 35px;
+  }
+  textarea {
+    resize: none;
+    &::placeholder {
+      font-size: $fs-14;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.43;
+      letter-spacing: 0.23px;
+      color: $black-03;
+    }
+  }
+
+  // Icono
+  &.input-icon {
+    & .icon-container > span {
+      color: $primary;
+      font-size: $fs-20;
+      position: absolute;
+      right: 14px;
+      bottom: 8px;
+    }
+    & > input {
+      padding-right: 44px;
+      &:disabled + span {
+        color: $black-03;
+      }
+      &.ng-invalid.ng-touched:not(form) + span {
+        color: $error !important;
+      }
+    }
+
+    .input-group-placeholder > input {
+      padding-right: 44px;
+      &:disabled + span {
+        color: $black-03;
+      }
+      &.ng-invalid.ng-touched:not(form) + span {
+        color: $error !important;
+      }
+    }
+
+    .input-group-placeholder > input + span {
+      color: $primary;
+      font-size: $fs-20;
+      position: absolute;
+      right: 13px;
+      bottom: 8px;
+    }
+
+    .ng-select.select {
+      & + .icon-container > span {
+        bottom: 9px;
+        z-index: 1001;
+      }
+
+      .ng-select-container {
+        padding-right: 30px;
+      }
+
+      &.ng-invalid.ng-touched:not(form) + span {
+        color: $error !important;
+      }
+    }
+    .ng-select.no-icon {
+      .ng-select-container {
+        padding-right: 10px;
+      }
+    }
+  }
+
+  input.ng-invalid.ng-touched ~ .invalid-feedback {
+    display: block !important;
+    font-size: $fs-14;
+  }
+
+
+  textarea.ng-invalid.ng-touched ~ .invalid-feedback {
+    display: block !important;
+    font-size: $fs-14;
+  }
+  re-captcha.ng-invalid.ng-touched ~ .invalid-feedback {
+    display: block !important;
+    font-size: $fs-14;
+  }
+
+  &.no-border {
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="number"],
+    textarea {
+      border: none !important;
+      &:focus {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .form-label {
+    font-weight: 400;
+    font-size: $fs-14;
+    color: $black-02;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+}
+
+.grew-input {
+  position: relative;
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"] {
+    border-radius: 4px;
+    border: none;
+    height: 48px;
+    background-color: $grey-06;
+    font-size: $fs-14;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: 0.23px;
+    color: $grey-02;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    &::placeholder {
+      font-size: $fs-14;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.43;
+      letter-spacing: 0.23px;
+      color: $black-03;
+    }
+    &:hover {
+      border-color: $grey-06;
+    }
+    &:focus {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      border-color: $grey-06;
+    }
+    &:disabled {
+      border-color: $grey-05;
+    }
+    &.ng-invalid.ng-touched:not(form) {
+      -webkit-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+      -moz-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+      box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+      border-color: $error;
+      &:hover,
+      &:focus {
+        -webkit-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+        -moz-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+        box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+        border-color: $error;
+      }
+    }
+  }
+
+  &.input-icon,
+  &.input-icon-rigth {
+    & > i {
+      color: $grey-02;
+      font-size: $fs-20;
+      position: absolute;
+    }
+  }
+
+  &.input-icon {
+    & > input {
+      padding-right: 44px;
+      & + i {
+        right: 14px;
+        top: 14px;
+      }
+    }
+  }
+
+  &.input-icon-rigth {
+    & > i:first-child {
+      left: 14px;
+      top: 14px;
+    }
+    & > input {
+      padding-left: 44px;
+    }
+  }
+}
+
+.input-group-text {
+  background-color: #ffffff;
+  border: solid 2px #d6d6d6;
+  font-size: $fs-12;
+  height: 35px;
+  border-right-width: 0;
+  padding: 0.375rem 0 0.375rem 0.75rem;
+  & ~ input {
+    border-left-width: 0 !important;
+  }
+  .ng-invalid.ng-touched ~ & {
+    -webkit-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+    -moz-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+    box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+    border-color: $error;
+    &:hover,
+    &:focus {
+      -webkit-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+      -moz-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+      box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+      border-color: $error;
+    }
+  }
+}
+
+.input-group-placeholder {
+  position: relative;
+  .input-text-placeholder {
+    opacity: 0.7;
+    font-size: $fs-12;
+    font-weight: 300;
+    font-style: italic;
+    color: #545454;
+    height: 35px;
+    padding: 9px 0 9px 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    & ~ input {
+      padding-left: 43px;
+    }
+  }
+}
+
+.lateral-from-area {
+  .form-label {
+    font-weight: 400;
+    font-size: $fs-14;
+    color: $white !important;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"] {
+    height: 38px;
+  }
+}
+
+.input-medidor {
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"] {
+    font-size: $fs-24;
+    color: #545454;
+    font-weight: 700;
+    height: 50px;
+    border-width: 1px;
+    margin: 0 8px;
+    text-align: center;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  background-position: center;
+  transition: background 0.8s;
+  // height: 35px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: $fs-14;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: left;
+  color: $primary-light;
+  background-color: $white;
+  box-shadow: none;
+  border: solid 1px $primary-light;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.invalid-feedback-error{
+  color:$error;
+  font-size: $fs-14;
+}
+.icon-container{
+  position: relative;
+}
+// ocultar icono password
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear
+{
+    display: none;
+}
+// ocultar icono password safari
+input[type=password]::-webkit-contacts-auto-fill-button,
+input[type=password]::-webkit-credentials-auto-fill-button {
+   visibility: hidden;
+   display: none !important;
+   pointer-events: none;
+   height: 0;
+   width: 0;
+   margin: 0;
+}
+
+.input-group {
+  input {
+    border-radius: 5px;
+    border: solid 2px $white;
+    background-color: $white;
+    font-size: $fs-12;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    color: $black-02;
+    padding: 8px;
+    height: 35px;
+    &.ng-invalid.ng-touched:not(form) {
+      -webkit-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+      -moz-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+      box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+      border-color: $error;
+      &:hover,
+      &:focus {
+        -webkit-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+        -moz-box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+        box-shadow: 0px 0px 1px 1px rgba(214, 54, 73, 0.05);
+        border-color: $error;
+      }
+    }
+  }
+
+  button {
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+  }
+
+  input.ng-invalid.ng-touched ~ .invalid-feedback {
+    display: block !important;
+    font-size: $fs-14;
+  }
+}

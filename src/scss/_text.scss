@@ -1,0 +1,165 @@
+
+.f-10 {
+  font-size: $fs-10;
+}
+.f-12 {
+  font-size: $fs-12;
+}
+.f-14 {
+  font-size: $fs-14;
+}
+.f-16 {
+  font-size: $fs-16;
+}
+.f-18 {
+  font-size: $fs-18;
+}
+
+.f-21 {
+  font-size: $fs-20;
+}
+
+.f-24 {
+  font-size: $fs-24
+}
+
+.f-36 {
+  font-size: $fs-36;
+}
+.f-40 {
+  font-size: $fs-40;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.help-text {
+    color: $primary-light;
+    font-weight: 300;
+    font-size: $fs-14;
+    line-height: 1.571;
+}
+
+.capition {
+    font-size: $fs-14;
+}
+
+a {
+    color: $primary-light;
+    font-weight: 300;
+    font-size: $fs-14;
+    line-height: 1.571;
+    text-decoration: underline;
+    &:hover {
+        color: $primary-dark;
+    }
+}
+
+.mobile-title {
+    font-size: $fs-16;
+    color: $white;
+    font-weight: 700;
+}
+
+.white-text {
+    color: $white;
+}
+
+.t-primary {
+    color: #005AA7;
+}
+
+.t-primary-dark {
+  color: $primary-dark !important;
+}
+
+.t-second {
+    color: $primary-light;
+}
+
+.t-danger {
+    color: #FF3B30;
+}
+
+.t-success {
+  color: #5FDD97;
+}
+
+.t-gray {
+  color: #3B3F4B!important;
+}
+
+.t-grey01{
+  color: $grey-01;
+}
+
+.t-grey03{
+  color: $grey-03;
+}
+
+.t-title-select{
+  color: $scrollbar-thumb
+}
+
+
+.font-s {
+  --font-10: 0.5rem;
+  --font-12: 0.625rem;
+  --font-14: 0.75rem;
+  --font-16: 0.875rem;
+  --font-18: 1rem;
+  --font-20: 1.125rem;
+  --font-24: 1.375rem;
+  --font-32: 1.875rem;
+  --font-36: 2.125rem;
+  --font-40: 2.375rem;
+}
+
+.font-l {
+  --font-10: 0.75rem;
+  --font-12: 0.875rem;
+  --font-14: 1rem;
+  --font-16: 1.125rem;
+  --font-18: 1.25rem;
+  --font-20: 1.375rem;
+  --font-24: 1.625rem;
+  --font-32: 2.125rem;
+  --font-36: 2.375rem;
+  --font-40: 2.625rem;
+}
+
+.font-xl {
+  --font-10: 0.875rem;
+  --font-12: 1rem;
+  --font-14: 1.125rem;
+  --font-16: 1.25rem;
+  --font-18: 1.375rem;
+  --font-20: 1.5rem;
+  --font-24: 1.75rem;
+  --font-32: 2.25rem;
+  --font-36: 2.5rem;
+  --font-40: 2.75rem;
+}
+
+
+@media (max-width: 768px) {
+  .f-sm-14 {
+    font-size: $fs-14 !important;
+    span p {
+      font-size: $fs-14 !important;
+    }
+  }
+
+  .fw-sm-300 {
+    font-weight: 300 !important;
+  }
+}

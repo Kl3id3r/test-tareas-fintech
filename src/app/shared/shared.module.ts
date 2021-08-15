@@ -1,3 +1,4 @@
+import { FooterComponent } from './components/footer/footer.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -6,7 +7,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-    declarations: [],
+    declarations: [
+        FooterComponent
+    ],
     imports: [
         CommonModule,
         NgxSpinnerModule,
@@ -17,7 +20,8 @@ import { RouterModule } from '@angular/router';
         NgxSpinnerModule,
         TooltipModule,
         RouterModule,
-        CommonModule
+        CommonModule,
+        FooterComponent
     ],
     providers: []
 })

@@ -33,6 +33,17 @@ export const selectTasksViewModel = createSelector(
   }
 );
 
+export const selectTasksPending = createSelector(
+  selectAllTasks,
+  (
+    tasks: TaskModel.Task[]
+  ): TasksViewModel => {
+    return {
+      tasks: tasks.filter(e => e.estatus == 0)
+    };
+  }
+);
+
 export const entityExists = createSelector(
   selectAllEntities,
   (entities: any, props: any): boolean => {
