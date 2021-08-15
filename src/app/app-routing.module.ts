@@ -12,14 +12,14 @@ const routes: Routes = [
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: 'tareas',
+    path: '',
     loadChildren: () =>
-      import('./modules/tasks/tasks.module').then((m) => m.TasksModule),
+      import('./modules/container-private/container-private.module').then((m) => m.ContainerPrivateModule),
     canLoad: [AuthGuard]
   },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'auth'
   }
 ];
 

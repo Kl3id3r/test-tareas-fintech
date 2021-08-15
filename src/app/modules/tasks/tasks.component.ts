@@ -8,7 +8,9 @@ import { AppState } from './../../store/index';
 import { AuthService } from './../auth/resources/auth.service';
 import { logout } from './../../store/actions/auth.actions';
 import { browserReload } from './../../store/actions/auth.actions';
-import * as fromAuthSelectors from 'src/app/store/selectors/auth.selectors';
+// State
+import * as fromTasksActions from './state/tasks.actions';
+import * as formTaskViewModel from './state/tasks.selectors';
 
 @Component({
   selector: 'app-users',
@@ -16,20 +18,27 @@ import * as fromAuthSelectors from 'src/app/store/selectors/auth.selectors';
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent implements OnInit {
-  vm$: Observable<fromAuthSelectors.AuthLinksViewModal>;
+  vm$: Observable<formTaskViewModel.TasksViewModel>;
 
   constructor(
     public authService: AuthService,
     private store: Store<AppState>
   ) {
     this.vm$ = this.store.pipe(
-      select(fromAuthSelectors.selectAuthLinksViewModel)
+      select(formTaskViewModel.selectTasksViewModel)
     );
   }
 
   ngOnInit(): void {
     const user: User = JSON.parse(localStorage.getItem('user') || '');
     this.store.dispatch(browserReload({ user }));
+    this.loadTasks();
+  }
+
+  loadTasks() {
+    this.store.dispatch(
+      fromTasksActions.loadTasks()
+    );
   }
 
   logout() {

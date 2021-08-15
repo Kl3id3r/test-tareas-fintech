@@ -9,7 +9,8 @@ import { StoreModule } from '@ngrx/store';
 import * as fromAuth from '../../store/reducers/auth.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from '../../store/effects/auth.effects';
-import { RouterModule } from '@angular/router';
+// import { RouterModule } from '@angular/router';
+import { SharedModule } from './../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    RouterModule,
+    // RouterModule,
+    SharedModule,
     FormsModule,
     StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
     EffectsModule.forFeature([AuthEffects])
