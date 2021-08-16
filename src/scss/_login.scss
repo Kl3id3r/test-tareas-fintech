@@ -1,0 +1,32 @@
+.container-login {
+    background: $grey-pressed;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 5px;
+    .card_login {
+        max-width: 1000px;
+    }
+    .mw-form {
+        width: 300px;
+    }
+    .card {
+        height: 100%;
+    }
+    .texture_login {
+        position: absolute;
+        top: -50%;
+        left: -45%;
+        transform: rotate(25deg);
+    }
+    .ct_texture-box {
+        position: relative;
+        overflow: hidden;
+    }
+    .slogan_title {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        transform: rotate(-4deg);
+    }
+}

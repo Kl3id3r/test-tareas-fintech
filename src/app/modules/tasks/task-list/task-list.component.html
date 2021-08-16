@@ -6,7 +6,7 @@
         <th>Nombre</th>
         <th>Descripción</th>
         <th>Estatus</th>
-        <th>Accion</th>
+        <th>Acción</th>
       </tr>
     </thead>
     <tbody>
@@ -17,10 +17,19 @@
         <td>{{ i +1}}</td>
         <td>{{ task.nombre}}</td>
         <td>{{ task.descripcion}}</td>
-        <td>{{ task.estatus == 0 ? 'Pendiente' : 'Completado'}}</td>
         <td>
-          <button (click)="updateTask(task.id)">U</button>
-          <button (click)="deleteTask(task.id)">D</button>
+          <span class="icon_ct_table d-block mx-auto" tooltip="Completada" *ngIf="task.estatus == 1; else pendiente">
+            <img src="assets/icons/check.svg" alt="Completada" />
+          </span>
+          <ng-template #pendiente>
+            <span class="icon_ct_table d-block mx-auto" tooltip="Pendiente">
+              <img src="assets/icons/pending.svg" alt="Pendiente" />
+            </span>
+          </ng-template>
+        </td>
+        <td>
+          <button (click)="updateTask(task.id)" class="btn">U</button>
+          <button (click)="deleteTask(task.id)" class="btn">D</button>
         </td>
       </tr>
     </tbody>

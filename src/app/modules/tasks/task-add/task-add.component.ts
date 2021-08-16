@@ -3,7 +3,7 @@ import { TasksComponent } from './../tasks.component';
 import { addTask, upsertTask } from './../state/tasks.actions';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { Component, OnInit, OnDestroy, Host, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Host, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NUMBER_PATTERN, ALPHANUM_PATTERN } from './../../../shared/app.regexs';
 import { AppState } from 'src/app/store';
@@ -17,7 +17,7 @@ import { TaskService } from '../resources/task.service';
   styleUrls: ['./task-add.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TaskAddComponent implements OnInit, OnDestroy, OnChanges {
+export class TaskAddComponent implements OnInit, OnChanges {
   form: FormGroup;
   statusList: any[] = [];
   obs_vm$: Subscription | undefined;
@@ -42,8 +42,7 @@ export class TaskAddComponent implements OnInit, OnDestroy, OnChanges {
       descripcion: [
         undefined, [
           Validators.required,
-          Validators.maxLength(50),
-          Validators.pattern(ALPHANUM_PATTERN)
+          Validators.maxLength(150)
         ],
       ],
       estatus: [
@@ -71,11 +70,6 @@ export class TaskAddComponent implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-
-  ngOnDestroy(): void {
-    this.obs_vm$?.unsubscribe();
-  }
-
   get f(): any {
     return this.form.controls;
   }
@@ -95,6 +89,7 @@ export class TaskAddComponent implements OnInit, OnDestroy, OnChanges {
         descripcion,
         estatus
       });
+      this.form.markAllAsTouched();
     });
   }
 
@@ -106,7 +101,8 @@ export class TaskAddComponent implements OnInit, OnDestroy, OnChanges {
     if (this.form.valid) {
       this.taskId !== undefined ? (
         this.store.dispatch(upsertTask({ task: { ...this.form.value } })),
-        this._appTasks.taskId = undefined
+        this._appTasks.taskId = undefined,
+        this.onCancel()
       ) : (
         this.store.dispatch(addTask({ task: { ...this.form.value } }))
       );

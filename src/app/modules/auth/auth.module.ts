@@ -3,29 +3,26 @@ import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
-import { AuthLinksComponent } from './auth-links/auth-links.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import * as fromAuth from '../../store/reducers/auth.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from '../../store/effects/auth.effects';
-// import { RouterModule } from '@angular/router';
 import { SharedModule } from './../../shared/shared.module';
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    AuthLinksComponent
+    LoginComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    // RouterModule,
     SharedModule,
     FormsModule,
+    ReactiveFormsModule,
     StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducer),
     EffectsModule.forFeature([AuthEffects])
   ],
-  exports: [AuthLinksComponent],
+  exports: [],
 })
 export class AuthModule { }

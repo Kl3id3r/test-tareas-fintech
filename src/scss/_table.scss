@@ -51,7 +51,8 @@ table.dataTable {
           font-size: $fs-14;
           text-align: end;
           td {
-              height: 55px;
+              max-width: 120px;
+              min-height: 50px;
               vertical-align: middle;
               color: #2E384D;
               font-weight: 400;
@@ -65,4 +66,8 @@ table.dataTable {
 tr.selected {
   outline: 3px solid $primary;
   outline-offset: -3px;
+}
+
+.icon_ct_table {
+  width: $fs-20;
 }

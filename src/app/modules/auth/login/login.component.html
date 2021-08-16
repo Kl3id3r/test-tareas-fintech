@@ -1,19 +1,52 @@
-<div class="row">
-	<div class="login-form mt-5 col-md-8 offset-2">
-		<h3>Login</h3>
-		<form #f="ngForm" (ngSubmit)="onSubmit(f)">
-			<div class="form-group">
-				<label for="usernamelogin">Username</label>
-				<input type="text" name="username" ngModel #username required id="usernamelogin" class="form-control" placeholder="user or admin">
-			</div>
-			<div class="form-group">
-				<label for="passwordlogin">Password</label>
-				<input type="password" name="password" ngModel #password required id="passwordlogin" class="form-control" placeholder="Password"
-					   autocomplete>
-			</div>
-			<button type="submit" [disabled]=f.invalid class="btn btn-primary btn-lg"><span>Login <i class="fas fa-sign-in-alt"></i></span></button>
+<div class="container-login align-items-center justify-content-center">
+	<div class="container">
+		<div class="card_login">
+			<div class="row">
+				<div class="col-6 d-none d-md-block ct_texture-box">
+					<img class="texture_login" src="assets/img/textura_login.svg" alt="testura" />
+					<img class="p-relative" src="assets/img/banner_login.svg" alt="banner" />
+					<p class="text-white f-14 slogan_title fw-700">MISTAREASAPP</p>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<div class="card">
+						<h3 class="my-4 text-center t-grey01 fw-normal f-24">Bienvenido</h3>
+						<form [formGroup]="form" (submit)="onSubmit()" class="form-group mw-form mx-auto">
+							<div class="form-group mb-2">
+								<label class="f-12 t-grey04 d-block" for="username">
+									Correo Electrónico <span class="text-danger">(*)</span>
+								</label>
+								<input class="w-100" type="text" id="username" formControlName="username"
+									placeholder="Ingrese su correo">
+								<div class="invalid-feedback">
+									<ng-container *ngIf="f.username?.touched && f.username?.errors?.required">
+										Correo requerido
+									</ng-container>
+								</div>
+							</div>
 
-		</form>
+							<div class="form-group mb-2">
+								<label class="f-12 t-grey04 d-block" for="password">
+									Contraseña <span class="text-danger">(*)</span>
+								</label>
+								<input class="w-100" type="password" id="password" formControlName="password"
+									placeholder="Ingrese su contraseña">
+								<div class="invalid-feedback">
+									<ng-container *ngIf="f.password?.touched && f.password?.errors?.required">
+										Contraseña requerida
+									</ng-container>
+								</div>
+							</div>
 
+							<div class=" form-group mb-2 text-center my-3">
+								<button type="submit" [disabled]="form.invalid" class="btn btn-primary w-100">
+									INICIO DE SESIÓN
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+	<app-footer></app-footer>
 </div>

@@ -32,9 +32,10 @@
         width: 200px;
     }
     @media (min-width: 720px) {
-        position: relative;
+        position: fixed;
         opacity: 1;
         z-index: auto;
+        width: 90px;
         .app-logo {
             margin: auto;
             width: auto;

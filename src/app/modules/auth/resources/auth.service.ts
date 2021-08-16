@@ -10,7 +10,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   // Fake Login API
-  login(username: string, password: string): Observable<any> {
+  login(username: string, password: string): Observable<User> {
 
     // Fake users
     const moockUsers: User[] = [

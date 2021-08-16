@@ -4,7 +4,8 @@
     <form [formGroup]="form" (submit)="handleSubmit()">
         <div class="form-group mb-2">
             <label class="f-12 t-grey04" for="nombre">Nombre <span class="text-danger">(*)</span></label>
-            <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese nombre" id="nombre">
+            <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese nombre" id="nombre"
+                [autofocus]="taskId !== undefined">
             <div class="invalid-feedback">
                 <ng-container *ngIf="f.nombre?.touched && f.nombre?.errors?.required">
                     Nombre requerido
@@ -17,14 +18,12 @@
 
         <div class="form-group mb-2">
             <label class="f-12 t-grey04" for="descripcion">Descripción <span class="text-danger">(*)</span></label>
-            <input type="text" class="form-control" formControlName="descripcion" placeholder="Ingrese descripción"
-                id="descripcion">
+            <textarea class="w-100" formControlName="descripcion" placeholder="Ingrese descripción" id="descripcion"
+                rows="5">
+            </textarea>
             <div class="invalid-feedback">
                 <ng-container *ngIf="f.descripcion?.touched && f.descripcion?.errors?.required">
                     Descripción requerida
-                </ng-container>
-                <ng-container *ngIf="f.descripcion?.touched && f.descripcion?.errors?.pattern">
-                    Descripcion inválida
                 </ng-container>
             </div>
         </div>

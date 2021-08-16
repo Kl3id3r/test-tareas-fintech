@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store';
 import { Store, select } from '@ngrx/store';
 import { TasksComponent } from './../tasks.component';
-import { Component, Host, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Host, OnInit } from '@angular/core';
 
 import * as fromTasksActions from '../state/tasks.actions';
 import * as formTaskViewModel from '../state/tasks.selectors';
@@ -12,7 +12,8 @@ import * as formTaskViewModel from '../state/tasks.selectors';
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.scss']
+  styleUrls: ['./task-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskListComponent implements OnInit {
   vm$: Observable<formTaskViewModel.TasksViewModel>;
