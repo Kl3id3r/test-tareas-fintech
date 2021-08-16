@@ -34,11 +34,7 @@ export class SpinnerEffects {
           TaskActions.deleteTasksuccess,
           TaskActions.deleteTaskFailure
         ),
-        tap(() => {
-          this.spinner.hide();
-          // setTimeout(() => {
-          // }, 1000);
-        })
+        tap(() => this.spinner.hide())
       ),
     { dispatch: false }
   );

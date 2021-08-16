@@ -18,7 +18,7 @@ export class AuthService {
       { id: 'u-1', username: 'Usuario', email: 'user@email.com', password: 'user', isadmin: false },
     ];
 
-    const user = moockUsers.filter((user: User) => user.username === username && user.password === password);
+    const user = moockUsers.filter((user: User) => user.email === username && user.password === password);
     if (user.length) {
       return of(user[0]);
     } else {

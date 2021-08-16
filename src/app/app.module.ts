@@ -15,6 +15,7 @@ import { reducers, metaReducers } from './store';
 import { AppEffects } from './store/effects/app.effects';
 import { RouteEffects } from './store/effects/route.effects';
 import { SpinnerEffects } from './store/effects/spinner.effects';
+import { AlertEffects } from './store/effects/alert.effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
@@ -36,7 +37,8 @@ import { AppComponent } from './app.component';
     EffectsModule.forRoot([
       SpinnerEffects,
       RouteEffects,
-      AppEffects
+      AppEffects,
+      AlertEffects
     ]),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
