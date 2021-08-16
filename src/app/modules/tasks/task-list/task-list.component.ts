@@ -5,6 +5,7 @@ import { AppState } from 'src/app/store';
 import { Store, select } from '@ngrx/store';
 import { TasksComponent } from './../tasks.component';
 import { ChangeDetectionStrategy, Component, Host, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 import * as fromTasksActions from '../state/tasks.actions';
 import * as formTaskViewModel from '../state/tasks.selectors';
@@ -43,6 +44,18 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTask(taskId: number) {
-    this.store.dispatch(fromTasksActions.deleteTask({ taskId }));
+    Swal.fire({
+      title: '¿Seguro de eliminar esta tarea?',
+      text: "¡Los cambios no serán revertidos!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#223E6D',
+      cancelButtonColor: '#f46363',
+      confirmButtonText: 'Si, porfavor'
+    }).then(result => {
+      if (result.isConfirmed) {
+        this.store.dispatch(fromTasksActions.deleteTask({ taskId }));
+      }
+    })
   }
 }

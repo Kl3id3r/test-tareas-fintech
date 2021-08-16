@@ -1,27 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-// import { AlertService } from 'ngx-alerts';
+import Swal from 'sweetalert2';
 import * as fromAuthActions from '../actions/auth.actions';
 import { tap } from 'rxjs/operators';
 import * as fromTaskActions from '../../modules/tasks/state/tasks.actions';
 
 @Injectable()
 export class AlertEffects {
-  // checkingYourInformation$ = createEffect(
-  //   () =>
-  //     this.actions$.pipe(
-  //       ofType(fromAuthActions.loginPage),
-  //       tap(() => this.alertService.info('Checking your information'))
-  //     ),
-  //   { dispatch: false }
-  // );
 
   welcomeBack$ = createEffect(
     () =>
       this.actions$.pipe(
         ofType(fromAuthActions.loginSuccess),
         tap((action) =>
-          alert(`¡Bienvenido ${action.user.username}!`)
+          Swal.fire(`¡Bienvenido ${action.user.username}!`)
         )
       ),
     { dispatch: false }
@@ -31,7 +23,7 @@ export class AlertEffects {
     () =>
       this.actions$.pipe(
         ofType(fromAuthActions.loginFailure),
-        tap(() => alert('Login no exitoso'))
+        tap(() => Swal.fire({ title: 'Credenciales Inválidas', icon: 'error' }))
       ),
     { dispatch: false }
   );
@@ -40,7 +32,7 @@ export class AlertEffects {
     () =>
       this.actions$.pipe(
         ofType(fromAuthActions.logout),
-        tap(() => alert('¡Sesión finalizada!'))
+        tap(() => Swal.fire('¡Sesión finalizada!'))
       ),
     { dispatch: false }
   );
@@ -51,7 +43,7 @@ export class AlertEffects {
         ofType(fromTaskActions.loadTasksFailure),
         tap(() =>
           setTimeout(() => {
-            alert("¡Error al obtener tareas!")
+            Swal.fire(({ title: 'Error al obtener tareas', icon: 'error' }))
           }, 1000)
         )
       ),
@@ -62,7 +54,7 @@ export class AlertEffects {
     () =>
       this.actions$.pipe(
         ofType(fromTaskActions.addTasksuccess),
-        tap((action) => alert('¡Tarea creada con éxito!'))
+        tap((action) => Swal.fire('¡Tarea creada con éxito!'))
       ),
     { dispatch: false }
   );
@@ -73,7 +65,7 @@ export class AlertEffects {
         ofType(fromTaskActions.addTaskFailure),
         tap(() =>
           setTimeout(() => {
-            alert('¡Error al crear tarea!')
+            Swal.fire(({ title: 'Error al crear tarea', icon: 'error' }))
           }, 2000)
         )
       ),
@@ -86,7 +78,7 @@ export class AlertEffects {
         ofType(fromTaskActions.upsertTaskSuccess),
         tap(() =>
           setTimeout(() => {
-            alert('¡Tarea Actualizada!')
+            Swal.fire('¡Tarea Actualizada!')
           }, 1000)
         )
       ),
@@ -99,7 +91,7 @@ export class AlertEffects {
         ofType(fromTaskActions.upsertTaskFailure),
         tap(() =>
           setTimeout(() => {
-            alert('¡Error al actualizar tarea!')
+            Swal.fire(({ title: 'Error al actualizar', icon: 'error' }))
           }, 1000)
         )
       ),
@@ -112,7 +104,7 @@ export class AlertEffects {
         ofType(fromTaskActions.deleteTasksuccess),
         tap(() =>
           setTimeout(() => {
-            alert('¡Tarea eliminada!')
+            Swal.fire('¡Tarea eliminada!')
           }, 1000)
         )
       ),
@@ -125,7 +117,7 @@ export class AlertEffects {
         ofType(fromTaskActions.deleteTaskFailure),
         tap(() =>
           setTimeout(() => {
-            alert('¡Error al eliminar tarea!')
+            Swal.fire(({ title: 'Error al eliminar tarea', icon: 'error' }))
           }, 1000)
         )
       ),
