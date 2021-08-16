@@ -12,7 +12,7 @@ export interface State extends EntityState<Task> {
 }
 
 export const adapter: EntityAdapter<Task> = createEntityAdapter<Task>({
-  sortComparer: sortByName
+  sortComparer: sortByStatus
 });
 
 export const initialState: State = adapter.getInitialState({
@@ -66,4 +66,8 @@ export const {
 
 export function sortByName(a: Task, b: Task): number {
   return a.nombre.localeCompare(b.nombre);
+}
+
+export function sortByStatus(a: Task, b: Task): number {
+  return a.estatus ? 0 : -1;
 }

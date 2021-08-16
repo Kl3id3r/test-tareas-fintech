@@ -9,9 +9,9 @@
       <p class="t-primary fw-bold m-0 f-21">
         {{ vm.username }}
       </p>
-      <p class="m-0 f-14 t-second mb-2">{{ vm.email }}</p>
+      <p class="m-0 f-14 t-second mb-2 fw-500">{{ vm.email }}</p>
       <div *ngIf="taskspending$ | async as vmtaskpending">
-        <p class="t-primary m-0 f-12">
+        <p class="t-primary m-0 f-12 t-scrollbar-track">
           <span *ngIf="vmtaskpending.taskspending.length; else nopending">
             Tienes <span class="fw-bold">{{ vmtaskpending.taskspending.length }}</span>
             {{ vmtaskpending.taskspending.length > 1 ? 'tareas' : 'tarea'}}
