@@ -16,12 +16,14 @@ export class MenuService {
   }
 
   private getItems() {
-    this.items = [
+    const items = [
       {
         id: 0,
-        label: 'Inicio',
-        url: '/tareas'
+        label: 'Tareas',
+        url: '/tareas',
+        iconUrl: "assets/icons/book.svg"
       }
     ];
+    this.items = items;
   }
 }

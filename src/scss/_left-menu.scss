@@ -2,4 +2,136 @@
     background: $primary;
     height: 100%;
     color: $white;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: .3s ease;
+    opacity: 0;
+    z-index: -1;
+    &.onshow {
+        opacity: 1;
+        z-index: 100;
+    }
+    .app-leftMenu-close {
+        position: absolute;
+        padding-top: 38px;
+        right: 10%;
+        .btn-close {
+            filter: invert(1);
+        }
+    }
+    .app-logo {
+        margin: 60px auto 0;
+        width: 200px;
+    }
+    @media (min-width: 720px) {
+        position: relative;
+        opacity: 1;
+        z-index: auto;
+        .app-logo {
+            margin: auto;
+            width: auto;
+        }
+        .app-leftMenu-close {
+            display: none;
+        }
+    }
+    .app-menuItems {
+        list-style: none;
+        max-height: calc(100% - 76px - 60px);
+        &:hover {
+            overflow-y: auto;
+        }
+    }
+    .menuItem {
+        gap: 5px;
+        transition: 0.3s ease;
+        padding-right: 15px;
+        & .menuItem-icon {
+            width: 20px;
+            height: 20px;
+        }
+        & a {
+            text-decoration: none;
+            font-size: $fs-20;
+        }
+        @media (min-width: 720px) {
+            & a {
+                text-decoration: none;
+                font-size: $fs-14;
+            }
+            &::before {
+                content: "";
+                width: 20px;
+                height: 20px;
+                background: #ffffff;
+                position: absolute;
+                right: -10px;
+                transform: rotate(45deg);
+            }
+        }
+    }
+    .ct-btn-close {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 70%;
+            height: 1px;
+            background: $white;
+        }
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        .btn-closeSesion {
+            width: 25px;
+        }
+    }
+}
+
+.app-menuHeader {
+    background: $primary;
+    position: sticky;
+    top: 0;
+    a {
+        display: block;
+        max-width: 90px;
+    }
+    .menu-burger {
+        background: transparent;
+        border: none;
+        width: 25px;
+        height: 15px;
+        position: relative;
+        & i {
+            width: 25px;
+            height: 1px;
+            background: #fff;
+            padding: 1px;
+            position: absolute;
+            left: 0;
+            border-radius: 5px;
+        }
+        & i:first-child {
+            top: 0;            
+        }
+        & i:nth-child(2) {
+            top: 50%;
+        }
+        & i:last-child {
+            top: 100%;
+        }
+    }
+    @media (min-width: 720px){
+        display: none;
+    }
 }

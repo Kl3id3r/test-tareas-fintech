@@ -1,11 +1,39 @@
-<div class="app-leftMenu align-items-start">
-  <div class="app-logo">
-    <img src="app-logo.svg" alt="MISTAREAS">
+<div class="app-menuHeader">
+  <div class="mx-auto row align-items-center justify-content-between py-2 px-4">
+    <div class="col-4">
+      <a routerLink="/tareas">
+        <img class="img-thumb" src="assets/icons/mistareas.svg" alt="MISTAREAS">
+      </a>
+    </div>
+    <div class="col-4 text-end">
+      <button class="menu-burger" (click)="show = !show">
+        <i></i>
+        <i></i>
+        <i></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="app-leftMenu align-items-start" [ngClass]="{'onshow': show}">
+  <div class="app-leftMenu-close">
+    <button class="btn-close" (click)="show = !show"></button>
+  </div>
+  <div class="app-logo p-2">
+    <a routerLink="/tareas">
+      <img src="assets/icons/mistareas.svg" alt="MISTAREAS">
+    </a>
   </div>
 
-  <ul class="app-menuItems">
-    <li *ngFor="let item of items">
+  <ul class="app-menuItems p-0 m-0 pt-5">
+    <li class="menuItem d-flex m-0 align-items-center justify-content-center" *ngFor="let item of items">
+      <img class="menuItem-icon" [src]="item.iconUrl" alt="Icon" />
       <a [routerLink]="item.url" routerLinkActive="text-white">{{item.label}}</a>
     </li>
   </ul>
+  <div class="ct-btn-close d-flex justify-content-center align-items-center">
+    <button class="btn-closeSession btn-icon" (click)="logout()">
+      <img src="assets/icons/log-out.svg" alt="Salir" />
+    </button>
+  </div>
 </div>

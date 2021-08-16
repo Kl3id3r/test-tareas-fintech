@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
 // State
 import * as fromAuthSelectors from 'src/app/store/selectors/auth.selectors';
 import * as fromTaskSelectors from '../../../tasks/state/tasks.selectors';
-import { logout } from 'src/app/store/actions/auth.actions';
 
 @Component({
   selector: 'app-card-profile',
@@ -25,10 +24,6 @@ export class CardProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  logout() {
-    this.store.dispatch(logout())
   }
 
 }

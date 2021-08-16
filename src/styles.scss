@@ -3,7 +3,13 @@
 @import "./scss/variables";
 @import "./scss/text";
 @import "./scss/inputs";
+@import "./scss/buttons";
 @import "./scss/left-menu";
+
+img {
+    float: left;
+    width: 100%;
+}
 
 .app_root {
     width: 100%;
