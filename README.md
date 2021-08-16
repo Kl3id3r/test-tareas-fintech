@@ -6,6 +6,7 @@
 
 ## Credenciales para ingresar
 correo: admin@email.com / contraseña: admin
+##
 correo: user@email.com / contraseña: user
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
