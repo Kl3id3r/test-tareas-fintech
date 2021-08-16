@@ -1,5 +1,5 @@
-<div class="auth-links" *ngIf="vm$ | async as vm" class="table-responsive">
-  <table class="table">
+<div class="table-responsive" *ngIf="vm$ | async as vm" class="table-responsive">
+  <table class="table mistareas_table">
     <thead>
       <tr>
         <th>N°</th>
@@ -10,7 +10,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngIf="!vm.tasks.length"> No hay tareas que mostrar</tr>
+      <tr *ngIf="!vm.tasks.length">
+        <td colspan="5">No hay tareas que mostrar</td>
+      </tr>
       <tr *ngFor="let task of vm.tasks; let i = index">
         <td>{{ i +1}}</td>
         <td>{{ task.nombre}}</td>

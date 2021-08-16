@@ -2,3 +2,82 @@
     background: transparent;
     border: none;
 }
+
+button:focus {
+    outline: none;
+}
+
+.btn {
+    background-position: center;
+    transition: background 0.8s;
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active {
+        transition: background 0s;
+        background-size: 100%;
+    }
+    &:focus,
+    &.focus {
+        box-shadow: none;
+    }
+}
+
+.btn-primary {
+    padding: 5px 20px;
+    border-radius: 5px;
+    font-size: $fs-16;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: center;
+    color: $white;
+    background-color: $primary;
+    box-shadow: none;
+    border: none;
+    &:hover {
+        -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+        background: $primary-light radial-gradient(circle, transparent 1%, $primary-light 1%) center/15000%;
+    }
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active {
+        background-color: $primary-dark;
+    }
+    &.disabled,
+    &:disabled {
+        background-color: $grey-05;
+        color: $black-03;
+        box-shadow: none !important;
+    }
+    &:focus,
+    &.focus {
+        background-color: $primary;
+        box-shadow: none;
+    }
+    &:not(:disabled):not(.disabled):active:focus,
+    &:not(:disabled):not(.disabled).active:focus {
+        box-shadow: none;
+    }
+}
+
+.btn-danger {
+    // height: 35px;
+    padding: 5px 20px;
+    border-radius: 5px;
+    font-size: $fs-14;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    text-align: center;
+    color: $white;
+    background-color: $danger;
+    box-shadow: none;
+    border: none;
+    &:hover {
+        -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
+        background-color: $danger;
+    }
+}
+

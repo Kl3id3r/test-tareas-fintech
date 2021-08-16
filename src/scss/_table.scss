@@ -1,0 +1,68 @@
+.mistareas_table {
+  display: table;
+  .mistareas_table-thlight {
+    color: #bfc5d2;
+  }
+  th {
+    text-align: center !important;
+    padding: 0.5rem 5px;
+    color:red;
+  }
+  tbody {
+    tr, td {
+      text-align: center !important;
+    }
+  }
+}
+
+table.dataTable {
+  border-spacing: 0;
+}
+
+.table {
+  display: table;
+  font-size: $fs-14;
+  width: 100%;
+  color: #2E384D;
+
+  th {
+      color: $primary;
+      font-weight: bold;
+      font-size: $fs-12;
+      height: 44px;
+      vertical-align: top;
+      text-align: end;
+      position: sticky;
+      top: 0;
+      background: rgb(242, 243, 248) !important;
+      text-transform: uppercase;
+  }
+
+  & > thead {
+    color: $primary-dark;
+  }
+
+  tbody {
+      tr {
+          background-color: #f2f3f8;
+          border-top: 8px solid $white;
+          color: #2E384D;
+          font-weight: 400;
+          font-size: $fs-14;
+          text-align: end;
+          td {
+              height: 55px;
+              vertical-align: middle;
+              color: #2E384D;
+              font-weight: 400;
+              font-size: $fs-14;
+              text-align: end;
+          }
+      }
+  }
+
+}
+tr.selected {
+  outline: 3px solid $primary;
+  outline-offset: -3px;
+}
