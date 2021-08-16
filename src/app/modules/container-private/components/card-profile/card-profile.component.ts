@@ -26,7 +26,7 @@ export class CardProfileComponent implements OnInit {
 
     this.taskspending$.subscribe(data => {
       // Agregar calculo valido de porcentaje
-      this.styleWidth = `${(data.taskspending.length * data.tasks.length)}%`;
+      this.styleWidth = `${((data.taskspending.length * 100) / data.tasks.length)}%`;
     });
   }
 

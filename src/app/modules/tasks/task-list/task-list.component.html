@@ -28,8 +28,12 @@
           </ng-template>
         </td>
         <td>
-          <button (click)="updateTask(task.id)" class="btn">U</button>
-          <button (click)="deleteTask(task.id)" class="btn">D</button>
+          <button (click)="updateTask(task.id)" class="btn filter-invert-gray" tooltip="Editar">
+            <img src="assets/icons/pencil.svg" alt="Editar" />
+          </button>
+          <button (click)="deleteTask(task.id)" class="btn t-gray filter-invert-gray" tooltip="Eliminar">
+            <img src="assets/icons/trash.svg" alt="Eliminar" />
+          </button>
         </td>
       </tr>
     </tbody>
