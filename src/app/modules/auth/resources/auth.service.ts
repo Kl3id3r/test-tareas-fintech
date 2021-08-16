@@ -14,8 +14,8 @@ export class AuthService {
 
     // Fake users
     const moockUsers: User[] = [
-      { id: 'u-0', username: 'admin', email: 'admin@email.com', password: 'admin', isadmin: true },
-      { id: 'u-1', username: 'user', email: 'user@email.com', password: 'user', isadmin: false },
+      { id: 'u-0', username: 'Administrador', email: 'admin@email.com', password: 'admin', isadmin: true },
+      { id: 'u-1', username: 'Usuario', email: 'user@email.com', password: 'user', isadmin: false },
     ];
 
     const user = moockUsers.filter((user: User) => user.username === username && user.password === password);

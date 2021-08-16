@@ -1,0 +1,29 @@
+.card_profile {
+
+    .card_photo {
+        padding: 3px;
+        box-sizing: border-box;
+        display: block;
+        overflow: hidden;
+        box-shadow: 0 0 0 2px #223e6d;
+        border-radius: 50%;
+        width: 65px;
+    }
+    .ct-percent {
+        width: 120px;
+        height: 7px;
+        background: #ddd;
+        border-radius: 4px;
+        margin: 0;
+        position: relative;
+        overflow: hidden;
+        .percent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #EA7979;
+            transition: .3s linear;
+        }
+    }
+}

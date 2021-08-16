@@ -22,6 +22,11 @@ export interface TasksViewModel {
   tasks: TaskModel.Task[];
 }
 
+export interface TasksPendingViewModel {
+  tasks: TaskModel.Task[];
+  taskspending: TaskModel.Task[];
+}
+
 export const selectTasksViewModel = createSelector(
   selectAllTasks,
   (
@@ -37,9 +42,10 @@ export const selectTasksPending = createSelector(
   selectAllTasks,
   (
     tasks: TaskModel.Task[]
-  ): TasksViewModel => {
+  ): TasksPendingViewModel => {
     return {
-      tasks: tasks.filter(e => e.estatus == 0)
+      tasks: tasks,
+      taskspending: tasks.filter(e => e.estatus == 0)
     };
   }
 );

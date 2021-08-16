@@ -1,21 +1,28 @@
-<div class="row">
-  <div class="col-4">
-    <img class="img-thumb" src="profile.jpg" alt="Perfil" />
-  </div>
-  <div class="col-8" *ngIf="vm$ | async as vm">
-    <p class="t-primary fw-bold">
-      {{ vm.username }}
-    </p>
-    <p>{{ vm.email }}</p>
-  </div>
-  <div class="col-8" *ngIf="taskspending$ | async as vmtaskpending">
-    <p class="t-primary">
-      <span *ngIf="vmtaskpending.tasks.length; else nopending">
-        Tienes <span class="fw-bold">{{ vmtaskpending.tasks.length }}</span>
-        {{ vmtaskpending.tasks.length > 1 ? 'tareas' : 'tarea'}}
-        {{ vmtaskpending.tasks.length > 1 ? 'pendientes' : 'pendiente'}}
-      </span>
-      <ng-template #nopending>No tienes tareas pendientes</ng-template>
-    </p>
+<div class="card_profile">
+  <div class="row align-items-center" *ngIf="vm$ | async as vm">
+    <div class="col-4">
+      <div class="card_photo">
+        <img class="img-thumb" src="assets/img/profile.jpg" [alt]="vm.username" />
+      </div>
+    </div>
+    <div class="col-8">
+      <p class="t-primary fw-bold m-0 f-21">
+        {{ vm.username }}
+      </p>
+      <p class="m-0 f-14 t-second mb-2">{{ vm.email }}</p>
+      <div *ngIf="taskspending$ | async as vmtaskpending">
+        <p class="t-primary m-0 f-12">
+          <span *ngIf="vmtaskpending.taskspending.length; else nopending">
+            Tienes <span class="fw-bold">{{ vmtaskpending.taskspending.length }}</span>
+            {{ vmtaskpending.taskspending.length > 1 ? 'tareas' : 'tarea'}}
+            {{ vmtaskpending.taskspending.length > 1 ? 'pendientes' : 'pendiente'}}
+          </span>
+          <ng-template #nopending>No hay tareas pendientes</ng-template>
+        </p>
+        <div class="ct-percent">
+          <span class="percent" [ngStyle]="{'width': styleWidth}"></span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

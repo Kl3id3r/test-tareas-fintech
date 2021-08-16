@@ -14,13 +14,20 @@ import * as fromTaskSelectors from '../../../tasks/state/tasks.selectors';
 })
 export class CardProfileComponent implements OnInit {
   vm$: Observable<fromAuthSelectors.UserProfile>;
-  taskspending$: Observable<fromTaskSelectors.TasksViewModel>;
+  taskspending$: Observable<fromTaskSelectors.TasksPendingViewModel>;
+
+  styleWidth: string = '0';
 
   constructor(
     private store: Store<AppState>
   ) {
     this.vm$ = this.store.pipe(select(fromAuthSelectors.selectUserProfile));
     this.taskspending$ = this.store.pipe(select(fromTaskSelectors.selectTasksPending));
+
+    this.taskspending$.subscribe(data => {
+      // Agregar calculo valido de porcentaje
+      this.styleWidth = `${(data.taskspending.length * data.tasks.length)}%`;
+    });
   }
 
   ngOnInit() {

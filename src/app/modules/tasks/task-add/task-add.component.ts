@@ -114,4 +114,12 @@ export class TaskAddComponent implements OnInit, OnDestroy, OnChanges {
     }
     return;
   }
+
+  onCancel() {
+    if (this.taskId) {
+      this.form.removeControl('id');
+    }
+    this.taskId = undefined;
+    this.form.reset();
+  }
 }
