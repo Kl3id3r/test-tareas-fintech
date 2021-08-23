@@ -2,9 +2,17 @@
 
 ## Acceder a la app desde servidor de vercel
 
-[MISTAREAS](http://test-tareas-fintech-hvarpvrrw-test-tareas-fintech.vercel.app/)
+[MISTAREAS](https://test-tareas-fintech-mv9cy71wy-test-tareas-fintech.vercel.app/)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.
+##
+##
+## Credenciales para ingresar
+correo: admin@email.com / contraseña: admin
+##
+correo: user@email.com / contraseña: user
+##
+##
+
 
 ## Development server
 
