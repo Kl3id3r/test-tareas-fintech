@@ -15,7 +15,7 @@ import { TaskService } from '../resources/task.service';
   selector: 'app-task-add',
   templateUrl: './task-add.component.html',
   styleUrls: ['./task-add.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskAddComponent implements OnInit, OnChanges {
   form: FormGroup;
@@ -62,6 +62,9 @@ export class TaskAddComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.loadStatus();
+    if (this.taskId !== undefined) {
+      this.loadFormUpdate(this.taskId);
+    }
   }
 
   ngOnChanges(value: any): void {
@@ -94,27 +97,28 @@ export class TaskAddComponent implements OnInit, OnChanges {
   }
 
   handleSubmit(): void {
-    if (this.taskId == undefined && this.form.get('id')) {
-      this.form.removeControl('id');
-    }
     this.form.markAllAsTouched();
-    if (this.form.valid) {
-      this.taskId !== undefined ? (
-        this.store.dispatch(upsertTask({ task: { ...this.form.value } })),
-        this._appTasks.taskId = undefined,
-        this.onCancel()
-      ) : (
-        this.store.dispatch(addTask({ task: { ...this.form.value } }))
-      );
-      this.form.reset();
+    const task = { ...this.form.value };
+    if (this.taskId !== undefined) {
+      this.form.removeControl('id');
+      if (this.form.valid) {
+        this.store.dispatch(upsertTask({ task }));
+        this._appTasks.taskId = undefined;
+        this.onCancel();
+      }
+    } else {
+      if (this.form.valid) {
+        {
+          this.store.dispatch(addTask({ task }));
+          this.onCancel();
+        }
+      }
+      return;
     }
-    return;
   }
 
   onCancel() {
-    if (this.taskId) {
-      this.form.removeControl('id');
-    }
+    this.form.removeControl('id');
     this.taskId = undefined;
     this.form.reset();
   }

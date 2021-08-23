@@ -1,5 +1,7 @@
 <div class="w-100">
-    <h2 class="m-0 mb-4 t-grey01 fw-normal f-24">Crear tarea</h2>
+    <h2 class="m-0 mb-4 t-grey01 fw-normal f-24">
+        {{taskId !== undefined ? 'Modificar tarea' : 'Crear tarea'}}
+    </h2>
 
     <form [formGroup]="form" (submit)="handleSubmit()">
         <div class="form-group mb-2">
@@ -53,7 +55,7 @@
             </p>
         </div>
 
-        <div class=" form-group mb-2 text-center my-3">
+        <div data-button-actions class=" form-group mb-2 text-center my-3">
             <button type="submit" [disabled]="form.invalid" class="btn btn-primary">
                 {{taskId !== undefined ? 'Guardar' : 'Enviar'}}
             </button>
