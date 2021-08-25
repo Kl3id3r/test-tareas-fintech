@@ -2,7 +2,7 @@
 
 ## Acceder a la app desde servidor de vercel
 
-[MISTAREAS](https://test-tareas-fintech-mv9cy71wy-test-tareas-fintech.vercel.app/)
+[MISTAREAS](https://test-tareas-fintech.vercel.app)
 
 ##
 ##
